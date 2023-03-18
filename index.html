@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spin&Win</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="overlay"></div>
+
+      <div class="content">
+        <div class="spinner">
+          <div class="spinner__wrap animated-shadow js-click">
+            <div class="spinner__img">
+              <div class="click-btn">Крути</div>
+              <div class="dial">
+                <div class="slice"><div class="label">Ще раз</div></div>
+                <div class="slice"><div class="label">1000₴</div></div>
+                <div class="slice"><div class="label">Ще раз</div></div>
+                <div class="slice"><div class="label">2000₴</div></div>
+                <div class="slice"><div class="label">0</div></div>
+                <div class="slice"><div class="label">4000₴</div></div>
+                <div class="slice"><div class="label">1500₴</div></div>
+                <div class="slice"><div class="label">Секретка</div></div>
+              </div>
+            </div>
+            <div class="arrow">
+              <span class="pointer"></span>
+            </div>
+          </div>
+        </div>
+        <div class="cta">
+          <h1 class="cta__text">
+            Розкрути колесо, <br />
+            щоб отримати приз
+          </h1>
+          <div class="cta__arrow">
+            <div class="bounce">&#8592;</div>
+          </div>
+        </div>
+      </div>
+      <div class="modal">
+        <div class="modal__window">
+          <div class="modal__content">
+            <h2 class="modal__title">СЛАВІК</h2>
+            <h2 class="modal__title">ти</h2>
+            <h2 class="bonus">воняєш</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const spinButton = document.querySelector(".js-click");
+      const dial = document.querySelector(".dial");
+      const spinner = document.querySelector(".spinner");
+      const modal = document.querySelector(".modal");
+      const content = document.querySelector(".content");
+
+      spinButton.addEventListener("click", () => {
+        dial.classList.toggle("spinning");
+        spinner.classList.toggle("activated");
+      });
+
+      dial.addEventListener("animationend", () => {
+        content.classList.add("hide");
+      });
+      spinner.addEventListener("animationend", () => {
+        modal.style.display = "block";
+      });
+    </script>
+  </body>
+</html>
